@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Docker Build",
+            "type": "shell",
+            "command": "docker build --pull --no-cache -t selenium-app .",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Prepare Screenshots Folder",
+            "type": "shell",
+            "command": "mkdir -p ${workspaceFolder}/screenshots && chmod 777 ${workspaceFolder}/screenshots",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Run",
+            "type": "shell",
+            "command": "docker run --rm -v ${workspaceFolder}/screenshots:/screenshots --env-file ${workspaceFolder}/.env selenium-app",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": ["Docker Build", "Prepare Screenshots Folder"],
+            "problemMatcher": []
+        }
+    ]
+}
