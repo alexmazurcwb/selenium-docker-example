@@ -6,7 +6,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --d
     && echo "deb [signed-by=/usr/share/keyrings/google-linux-signing-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
 RUN apt-get update && apt-get -y install google-chrome-stable
 
-# Download ChromeDriver compatible with Chrome 140
+# Download ChromeDriver compatible with Chrome 140 -> https://googlechromelabs.github.io/chrome-for-testing/known-good-versions.json
 RUN wget -q "https://storage.googleapis.com/chrome-for-testing-public/140.0.7339.41/linux64/chromedriver-linux64.zip" && \
     unzip chromedriver-linux64.zip && \
     mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver && \
