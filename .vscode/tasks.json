@@ -4,8 +4,7 @@
         {
             "label": "Docker Build",
             "type": "shell",
-            "command": "docker build --pull --no-cache -t selenium-app .",
-            "group": {
+            "command": "docker build --pull --no-cache --platform linux/amd64 -t selenium-app .",
                 "kind": "build",
                 "isDefault": true
             },
