@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 import os
 
 BASE_DIR = os.path.dirname(__file__)
-chromedriver_path = r"/home/alex-mazur/Downloads/selenium-docker-example-main/chromedriver"
+chromedriver_path = os.path.join(BASE_DIR, "chromedriver")
 service = Service(executable_path=chromedriver_path)
 
 chrome_options = Options()
